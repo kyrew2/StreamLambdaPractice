@@ -14,17 +14,20 @@ void main() {
         int valor = scan.nextInt();
         numeros.add(valor);
     }
-    // a) Imprimir apenas os números pares (filter)
+    // Lambda que filtra os números da list para mostrar apenas o valores pares
     System.out.println("\n--- Apenas os números pares da sua List ---");
     numeros.stream().filter(numero -> numero % 2 == 0).forEach(System.out::println);
 
-    // b) Imprimir os valores dobrados (map)
+    // Lambda que dobra e mostra os valores da list
+    System.out.println("\n--- Dobra e mostra os múmeros da sua List ---");
+    numeros.stream().map(numero -> numero * 2).forEach(System.out::println);
 
-    // c) Imprimir os valores em ordem crescente (sorted)
+    //Lambda que organiza os números da list em ordem crescente
+    System.out.println("\n--- Organiza os números da sua List em ordem crescente ---");
+    numeros.stream().sorted().forEach(System.out::println);
 
+    // forEach
     System.out.println("\n--- Lista original com forEach da List ---");
-    for (int numero : numeros){
-        System.out.println(numero);
-    }
+    numeros.forEach(System.out::println);
     scan.close();
 }
