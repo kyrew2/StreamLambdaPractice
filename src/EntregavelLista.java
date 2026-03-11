@@ -2,32 +2,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class EntregavelLista {
-    static void main() {
+void main() {
+    Scanner scan = new Scanner(System.in);
+    List<Integer> numeros = new ArrayList<>();
 
-        Scanner scan = new Scanner(System.in);
-        List<Integer> numeros = new ArrayList<>();
+    System.out.print("Informe o tamanho da lista: ");
+    int tamanho = scan.nextInt();
 
-        System.out.println("Informe o tamanho da lista: ");
-        int tamanho = scan.nextInt();
-
-        for (int i = 0; i < tamanho; i++){
-            System.out.println("Digite o valor " + (i + 1) + ": ");
-            int valor = scan.nextInt();
-            numeros.add(valor);
-        }
-        // a) Imprimir apenas os números pares (filter)
-
-        // b) Imprimir os valores dobrados (map)
-
-        // c) Imprimir os valores em ordem crescente (sorted)
-
-        System.out.println("\n--- Lista original com forEach da List ---");
-        for (int numero : numeros){
-            System.out.println(numero);
-        }
-        scan.close();
-
-
+    for (int i = 0; i < tamanho; i++){
+        System.out.println("Digite o valor " + (i + 1) + ": ");
+        int valor = scan.nextInt();
+        numeros.add(valor);
     }
+    // a) Imprimir apenas os números pares (filter)
+    System.out.println("\n--- Apenas os números pares da sua List ---");
+    numeros.stream().filter(numero -> numero % 2 == 0).forEach(System.out::println);
+
+    // b) Imprimir os valores dobrados (map)
+
+    // c) Imprimir os valores em ordem crescente (sorted)
+
+    System.out.println("\n--- Lista original com forEach da List ---");
+    for (int numero : numeros){
+        System.out.println(numero);
+    }
+    scan.close();
 }
